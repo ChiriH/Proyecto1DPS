@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from './api'; // Importa la configuración de Axios
 import { useRouter } from 'next/router';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'; // importar Bootstrap
 
 const RegisterScreen = () => {
   const [userEmail, setUserEmail] = useState('');
