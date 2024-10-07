@@ -1,6 +1,15 @@
 import DashboardScreen from '../components/DashboardScreen';
-import WithAuth from '../components/WithAuth';
+import Link from 'next/link'; // Para utilizar enlaces de navegación
+import WithAuth from '../components/WithAuth'; // Importamos WithAuth
 
-const DashboardPage = WithAuth(DashboardScreen); 
+const DashboardPage = () => {
+  return (
+    <div>
+      {/* Renderizamos el contenido del Dashboard */}
+      <DashboardScreen />
+    </div>
+  );
+};
 
-export default DashboardPage;
+// Exportamos la página con la protección de WithAuth
+export default WithAuth(DashboardPage);

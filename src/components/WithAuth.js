@@ -1,25 +1,27 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { checkSession } from './api'; 
+import { checkSession } from './api'; // Función que verifica si hay una sesión activa
 
 const WithAuth = (WrappedComponent) => {
-  return (props) => {
+  const AuthenticatedComponent = (props) => {
     const router = useRouter();
 
     useEffect(() => {
       const verifySession = async () => {
-        const session = await checkSession();
-        if (!session.loggedIn) {
-          // Redirigir a la página de inicio de sesión si no está logeado
+        const sessionData = await checkSession();
+        console.log('Sesión verificada:', sessionData); // Agrega este log para depurar
+        if (!sessionData.loggedIn) {
           router.push('/login');
         }
       };
-
+    
       verifySession();
-    }, [router]);
+    }, []);
 
     return <WrappedComponent {...props} />;
   };
+
+  return AuthenticatedComponent;
 };
 
 export default WithAuth;
