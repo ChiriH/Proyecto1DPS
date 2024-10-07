@@ -1,7 +1,7 @@
 "use client"; // Indica que este es un componente del lado del cliente
 
-import { useRouter } from 'next/navigation'; // Cambiamos a 'next/navigation'
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de que Bootstrap esté disponible
+import { useRouter } from 'next/navigation'; 
+import 'bootstrap/dist/css/bootstrap.min.css';  
 import styles from "./page.module.css"; // Estilos personalizados
 
 export default function Home() {
