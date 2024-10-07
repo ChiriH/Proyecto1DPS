@@ -1,24 +1,21 @@
+/* Variables personalizadas */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
+/* Estilos globales */
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
+  background-color: var(--light-color);
+  color: var(--dark-color);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,12 +28,103 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de botones personalizados */
+button.primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+button.primary:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Utilidades de Bootstrap adicionales */
+.container {
+  padding: 2rem;
+}
+
+/* Estilos de formularios */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.25rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Estilos personalizados para react-calendar */
+
+/* Estilo para el día actual */
+.react-calendar__tile.today {
+  background: blue !important;
+  color: white !important;
+}
+
+/* Estilo para fechas de inicio de proyectos */
+.react-calendar__tile.start-date {
+  background: green !important;
+  color: white !important;
+}
+
+/* Estilo para fechas de fin de proyectos */
+.react-calendar__tile.end-date {
+  background: yellow !important;
+  color: black !important;
+}
+
+/* Estilo cuando el día actual es una fecha de inicio */
+.react-calendar__tile.today.start-date {
+  background: darkgreen !important;
+  color: white !important;
+}
+
+/* Estilo cuando el día actual es una fecha de fin */
+.react-calendar__tile.today.end-date {
+  background: orange !important;
+  color: white !important;
+}
+
+/* Ajustes adicionales para asegurar que los estilos se apliquen correctamente */
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+.react-calendar__tile--now {
+  background: blue !important;
+  color: white !important;
+}
+
+.react-calendar__tile--active {
+  background: var(--primary-color) !important;
+  color: white !important;
 }

@@ -1,94 +1,38 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"; // Indica que este es un componente del lado del cliente
+
+import { useRouter } from 'next/navigation'; // Cambiamos a 'next/navigation'
+import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de que Bootstrap esté disponible
+import styles from "./page.module.css"; // Estilos personalizados
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter(); // Instancia de useRouter para manejar la navegación
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  const handleLoginClick = () => {
+    router.push('/login'); // Redirigir a la página de Login
+  };
+
+  const handleRegisterClick = () => {
+    router.push('/register'); // Redirigir a la página de Registro
+  };
+
+  return (
+    <div className="container mt-5">
+      <main className="text-center">
+        <h1 className="display-4 mb-4">Bienvenido al Sistema de Gestión de Proyectos</h1>
+        <p className="lead mb-4">Por favor, selecciona una opción para comenzar:</p>
+
+        <div className="d-flex justify-content-center gap-3">
+          <button onClick={handleLoginClick} className="btn btn-primary btn-lg">
+            Iniciar Sesión
+          </button>
+          <button onClick={handleRegisterClick} className="btn btn-secondary btn-lg">
+            Registrarse
+          </button>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="text-center mt-5">
+        <p>Proyecto 1 - Sistema de Gestión de Proyectos</p>
       </footer>
     </div>
   );
