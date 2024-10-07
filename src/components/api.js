@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// Crear una instancia de Axios con la baseURL que apunta a tu API en XAMPP
+ 
 const api = axios.create({
-  baseURL: 'http://localhost/api/login.php', // Asegúrate de que esta sea la URL correcta de tu backend
-  withCredentials: true, // Asegura que las cookies de sesión se envíen en las solicitudes
+  baseURL: 'http://localhost/api/login.php',  
+  withCredentials: true,  
 });
 
 // Interceptor para registrar solicitudes
@@ -26,7 +26,7 @@ api.interceptors.response.use(
   },
   (error) => {
     console.error('Error en la Respuesta', error);
-    // Puedes manejar errores globales aquí, como redireccionar en caso de 401
+    
     return Promise.reject(error);
   }
 );
