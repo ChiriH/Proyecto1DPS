@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from './api'; // Asegúrate de que esté configurado correctamente con baseURL
+import api from './api';  
 
 const ProyectosScreen = () => {
   const [proyectos, setProyectos] = useState([]);
@@ -56,7 +56,7 @@ const ProyectosScreen = () => {
 
     fetchProyectos();
     fetchUsuarios();
-    fetchUsuarioActual(); // Obtén al usuario actual cuando el componente se monte
+    fetchUsuarioActual(); //  usuario actual cuando el componente se monte
   }, []);
 
   const handleCrearProyecto = async (e) => {
